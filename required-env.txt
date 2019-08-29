@@ -1,0 +1,4 @@
+## Public ##
+
+## Secrets ##
+ConnectionStrings:PostgreSQL:RealStateManagerDb = ...
