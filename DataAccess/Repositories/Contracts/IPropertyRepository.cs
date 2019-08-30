@@ -5,6 +5,9 @@ namespace RealStateManager.DataAccess.Repositories.Contracts
 {
   public interface IPropertyRepository
   {
+    /*
+     * READ: Get All payments
+     */
     IEnumerable<Property> GetAll();
   }
 }

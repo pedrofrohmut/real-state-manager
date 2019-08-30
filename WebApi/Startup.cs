@@ -25,15 +25,23 @@ namespace WebApi
     public void ConfigureServices(IServiceCollection services)
     {
       services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+      // DbContext
       services.AddEntityFrameworkNpgsql()
         .AddDbContext<RealStateDbContext>(options =>
             options.UseNpgsql(Configuration["ConnectionStrings:PostgreSQL:RealStateManagerDb"]));
+      // Configuration
       services.AddSingleton<IConfiguration>(this.Configuration);
       services.AddSingleton<IDocumentExecuter, DocumentExecuter>();
-      services.AddSingleton<PropertyQuery>();
-      services.AddSingleton<PropertyType>();
+      // Repositories
+      services.AddTransient<IPaymentRepository, PaymentRepository>();
       services.AddTransient<IPropertyRepository, PropertyRepository>();
+      // Queries
+      services.AddSingleton<PropertyQuery>();
+      // Types
+      services.AddSingleton<PaymentType>();
+      services.AddSingleton<PropertyType>();
       var serviceProvider = services.BuildServiceProvider();
+      // Schema
       services.AddSingleton<ISchema>(
           new RealStateSchema(
             new FuncDependencyResolver(type => serviceProvider.GetService(type))));

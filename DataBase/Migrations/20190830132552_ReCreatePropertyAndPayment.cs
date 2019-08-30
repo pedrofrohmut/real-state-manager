@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace DataBase.Migrations
 {
-    public partial class CreatePropertyAndPayment : Migration
+    public partial class ReCreatePropertyAndPayment : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

@@ -9,5 +9,8 @@ namespace RealStateManager.DataBase.Models
     public DateTime CreatedAt { get; set; }
     public DateTime DateOverdue { get; set; }
     public bool IsPaid { get; set; }
+
+    public string PropertyId { get; set; }
+    public Property Property { get; set; }
   }
 }

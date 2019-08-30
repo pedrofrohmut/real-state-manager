@@ -9,14 +9,8 @@ namespace RealStateManager.DataAccess.Repositories
   {
     private readonly RealStateDbContext context;
 
-    public PropertyRepository(RealStateDbContext context)
-    {
-      this.context = context;
-    }
+    public PropertyRepository(RealStateDbContext context) { this.context = context; }
 
-    public IEnumerable<Property> GetAll()
-    {
-      return this.context.Properties;
-    }
+    public IEnumerable<Property> GetAll() => this.context.Properties;
   }
 }
