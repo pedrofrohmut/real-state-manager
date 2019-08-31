@@ -11,6 +11,7 @@ using RealStateManager.DataAccess.Repositories;
 using RealStateManager.DataAccess.Repositories.Contracts;
 using RealStateManager.DataBase;
 using RealStateManager.Types;
+using RealStateManager.WebApi.Mutations;
 using RealStateManager.WebApi.Queries;
 using RealStateManager.WebApi.Schema;
 
@@ -37,8 +38,11 @@ namespace WebApi
       services.AddTransient<IPropertyRepository, PropertyRepository>();
       // Queries
       services.AddSingleton<PropertyQuery>();
+      // Mutations
+      services.AddSingleton<PropertyMutation>();
       // Types
       services.AddSingleton<PaymentType>();
+      services.AddSingleton<PropertyInputType>();
       services.AddSingleton<PropertyType>();
       var serviceProvider = services.BuildServiceProvider();
       // Schema

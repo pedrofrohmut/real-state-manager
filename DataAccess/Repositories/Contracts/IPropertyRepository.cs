@@ -6,13 +6,18 @@ namespace RealStateManager.DataAccess.Repositories.Contracts
   public interface IPropertyRepository
   {
     /*
-     * READ: Get All payments
+     * QUERY: Get All payments
      */
     IEnumerable<Property> GetAll();
 
     /*
-     * READ: Get a property for the passed id
+     * QUERY: Get a property for the passed id
      */
     Property GetById(string id);
+
+    /*
+     * MUTATION: Add a new property and returns it
+     */
+    Property Add(Property newProperty);
   }
 }

@@ -12,6 +12,14 @@ namespace RealStateManager.DataAccess.Repositories
 
     public PropertyRepository(RealStateDbContext context) { this.context = context; }
 
+    public Property Add(Property newProperty)
+    {
+      this.context.Properties.Add(newProperty);
+      this.context.SaveChanges();
+      // now with Id, added by EFCore when saved to db
+      return newProperty;
+    }
+
     public IEnumerable<Property> GetAll() => this.context.Properties;
 
     public Property GetById(string id) => this.context.Properties.FirstOrDefault(property => property.Id == id);
