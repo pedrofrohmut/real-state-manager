@@ -12,6 +12,12 @@ namespace RealStateManager.WebApi.Queries
         "properties",
         resolve: (context) => propertyRepository.GetAll()
       );
+
+      Field<PropertyType>(
+        "property",
+        arguments: new QueryArguments(new QueryArgument<StringGraphType> { Name = "id" }),
+        resolve: (context) => propertyRepository.GetById(context.GetArgument<string>("id"))
+      );
     }
   }
 }

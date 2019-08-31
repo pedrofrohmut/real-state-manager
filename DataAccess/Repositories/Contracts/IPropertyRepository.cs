@@ -9,5 +9,10 @@ namespace RealStateManager.DataAccess.Repositories.Contracts
      * READ: Get All payments
      */
     IEnumerable<Property> GetAll();
+
+    /*
+     * READ: Get a property for the passed id
+     */
+    Property GetById(string id);
   }
 }
